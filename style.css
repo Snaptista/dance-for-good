@@ -380,14 +380,27 @@ ul    { list-style: none; }
   pointer-events: auto;
   transform: translateY(-50%) scale(0.82);
 }
-/* VINORATE – rechts */
+/* VINORATE – unten */
 .dj-headliners .dj-card.headliner:nth-child(2) .ig-embed-wrap {
+  top: calc(100% + 10px);
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) scale(0.82);
+  transform-origin: top center;
+}
+.dj-headliners .dj-card.headliner:nth-child(2):hover .ig-embed-wrap {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(0.82);
+}
+/* SCHORSCHI – rechts */
+.dj-headliners .dj-card.headliner:nth-child(3) .ig-embed-wrap {
   left: calc(100% + 10px);
   right: auto;
   transform: translateY(-50%) scale(0.82);
   transform-origin: left center;
 }
-.dj-headliners .dj-card.headliner:nth-child(2):hover .ig-embed-wrap {
+.dj-headliners .dj-card.headliner:nth-child(3):hover .ig-embed-wrap {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-50%) scale(0.82);
