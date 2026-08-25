@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dance For Good – 19. September 2026</title>
+  <meta name="description" content="Ein exklusives Charity Musik-Event in Wien. Der Reinerlös geht an die Österreichische Kinderkrebshilfe. 19. September 2026 | Meliã Vienna, 58. Stock – Altia Skybar.">
+  <link rel="icon" href="assets/icon.webp?v=2" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ======================== NAV ======================== -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">
+      <img src="assets/icon.webp?v=2" alt="DFQ" class="nav-icon">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-i18n="nav.event">Event</a></li>
+      <li><a href="#lineup">Line-Up</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="#last-event" data-i18n="nav.last-event">Letztes Event</a></li>
+      <li><a href="#team">About</a></li>
+    </ul>
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-btn" id="langBtn" aria-label="Sprache wählen" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        <span class="lang-current" id="langCurrent">DE</span>
+        <svg viewBox="0 0 20 20" fill="currentColor" width="12" height="12" class="lang-chevron"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu" role="listbox">
+        <button class="lang-option active" data-lang="de" role="option">🇦🇹 Deutsch</button>
+        <button class="lang-option" data-lang="en" role="option">🇬🇧 English</button>
+      </div>
+    </div>
+    <a href="https://www.eventbrite.at" class="btn-gold nav-cta" target="_blank" rel="noopener" data-i18n="nav.tickets">Tickets</a>
+  </div>
+</nav>
+
+<!-- ======================== HERO ======================== -->
+<section id="hero">
+
+  <!-- Right-side background: scrolling gallery strips -->
+  <div class="hero-gallery-bg">
+    <img src="assets/building.webp" alt="" class="hero-building-bg">
+    <div class="gallery-strip strip-a">
+      <img src="assets/gallery/bb/bb01.webp" alt=""><img src="assets/gallery/bb/bb02.webp" alt="">
+      <img src="assets/gallery/bb/bb03.webp" alt=""><img src="assets/gallery/bb/bb04.webp" alt="">
+      <img src="assets/gallery/bb/bb05.webp" alt=""><img src="assets/gallery/bb/bb06.webp" alt="">
+      <img src="assets/gallery/bb/bb01.webp" alt=""><img src="assets/gallery/bb/bb02.webp" alt="">
+      <img src="assets/gallery/bb/bb03.webp" alt=""><img src="assets/gallery/bb/bb04.webp" alt="">
+      <img src="assets/gallery/bb/bb05.webp" alt=""><img src="assets/gallery/bb/bb06.webp" alt="">
+    </div>
+    <div class="gallery-strip strip-b">
+      <img src="assets/gallery/bb/bb13.webp" alt=""><img src="assets/gallery/bb/bb14.webp" alt="">
+      <img src="assets/gallery/bb/bb15.webp" alt=""><img src="assets/gallery/bb/bb16.webp" alt="">
+      <img src="assets/gallery/bb/bb13.webp" alt=""><img src="assets/gallery/bb/bb14.webp" alt="">
+      <img src="assets/gallery/bb/bb15.webp" alt=""><img src="assets/gallery/bb/bb16.webp" alt="">
+    </div>
+    <div class="gallery-strip strip-c">
+      <img src="assets/gallery/bb/bb07.webp" alt=""><img src="assets/gallery/bb/bb08.webp" alt="">
+      <img src="assets/gallery/bb/bb09.webp" alt=""><img src="assets/gallery/bb/bb10.webp" alt="">
+      <img src="assets/gallery/bb/bb11.webp" alt=""><img src="assets/gallery/bb/bb12.webp" alt="">
+      <img src="assets/gallery/bb/bb07.webp" alt=""><img src="assets/gallery/bb/bb08.webp" alt="">
+      <img src="assets/gallery/bb/bb09.webp" alt=""><img src="assets/gallery/bb/bb10.webp" alt="">
+      <img src="assets/gallery/bb/bb11.webp" alt=""><img src="assets/gallery/bb/bb12.webp" alt="">
+    </div>
+    <div class="hero-overlay"></div>
+    <canvas id="waveCanvas"></canvas>
+  </div>
+
+  <!-- Split layout: left=gallery | center=flyer+content | right=gallery -->
+  <div class="hero-split">
+
+    <!-- LEFT: transparent – gallery strip-a shows through -->
+    <div class="hero-left"></div>
+
+    <!-- CENTER: content + flyer on semi-opaque dark background -->
+    <div class="hero-right">
+      <span class="label hero-label" data-i18n="hero.label">CHARITY MUSIC EVENT &middot; WIEN</span>
+
+      <div class="hero-date-badge">
+        <span class="badge-day">19</span>
+        <span class="badge-month">SEP</span>
+        <span class="badge-year">2026</span>
+        <div class="badge-divider"></div>
+        <span class="badge-time">7PM – 2AM</span>
+      </div>
+
+      <img src="assets/flyer.png" alt="Dance For Good – 19. September 2026" class="hero-flyer" loading="eager">
+
+      <div class="hero-countdown" id="countdown">
+        <div class="cd-item"><span id="cd-days">00</span><label data-i18n="hero.cd.days">TAGE</label></div>
+        <div class="cd-dot"></div>
+        <div class="cd-item"><span id="cd-hours">00</span><label data-i18n="hero.cd.hours">STD</label></div>
+        <div class="cd-dot"></div>
+        <div class="cd-item"><span id="cd-mins">00</span><label data-i18n="hero.cd.mins">MIN</label></div>
+        <div class="cd-dot"></div>
+        <div class="cd-item"><span id="cd-secs">00</span><label data-i18n="hero.cd.secs">SEK</label></div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#lineup" class="btn-gold" data-i18n="hero.cta.lineup">Line-Up entdecken</a>
+        <a href="https://www.eventbrite.at" class="btn-outline" target="_blank" rel="noopener" data-i18n="hero.cta.tickets">Tickets sichern</a>
+        <a href="assets/flyer-download.pdf" download="Dance-For-Good-2026-Flyer.pdf" class="btn-download" data-i18n="hero.cta.download">Flyer herunterladen</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: transparent – gallery strip-c shows through -->
+    <div class="hero-left"></div>
+
+  </div>
+
+  <div class="hero-scroll"><span data-i18n="hero.scroll">Scroll</span><div class="scroll-bar"></div></div>
+</section>
+
+<!-- ======================== 1. EVENT / ABOUT ======================== -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="label" data-i18n="about.label">ÜBER DAS EVENT</span>
+        <h2 class="about-headline">Dance.<br>Connect.<br>Give Back.</h2>
+        <p data-i18n-html="about.p1">Dance for Good ist mehr als ein Musik-Event – es ist eine Nacht, die verbindet, bewegt und Gutes bewirkt. Im Herzen Wiens, hoch über den Dächern der Stadt, bringen wir Musik, Gemeinschaft und einen guten Zweck zusammen.</p>
+        <p data-i18n-html="about.p2">Am <strong>19. September 2026</strong> öffnet die <strong>Altia Skybar</strong> im 58. Stock des Meliã Vienna ihre Türen für einen unvergesslichen Abend mit außergewöhnlichem Line-Up und einer klaren Mission.</p>
+        <div class="event-details">
+          <div class="detail">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/></svg>
+            <div><strong>Meliã Vienna, 58. Stock</strong><span>Altia by Urrechu – Restaurant &amp; Skybar</span></div>
+          </div>
+          <div class="detail">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm.75 8.75h-3.5a.75.75 0 010-1.5H9.25V5.75a.75.75 0 011.5 0v5z" fill="currentColor"/></svg>
+            <div><strong data-i18n="about.detail.date">19. September 2026</strong><span data-i18n="about.detail.time">19:00 – 02:00 Uhr</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="charity-card reveal">
+        <div class="charity-glow"></div>
+        <img src="assets/logos/kkh2.webp" alt="Österreichische Kinderkrebshilfe" class="kkh-logo-card">
+        <h3 data-i18n-html="about.charity.h3">Österreichische<br>Kinderkrebshilfe</h3>
+        <p data-i18n="about.charity.p">Der Reinerlös dieses Abends fließt direkt in die Unterstützung krebskranker Kinder und ihrer Familien in Österreich.</p>
+        <div class="charity-badge-inner">
+          <span data-i18n="about.charity.badge1">DER REINERLÖS GEHT AN THE</span>
+          <strong>AUSTRIAN CHILDREN'S CANCER AID</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 2. LINE-UP ======================== -->
+<section id="lineup" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="label">LINE-UP</span>
+      <h2 data-i18n="lineup.h2">Die Artists</h2>
+    </div>
+    <!-- Headliner Row -->
+    <div class="dj-headliners">
+
+      <div class="dj-card headliner reveal">
+        <div class="dj-photo"><img src="assets/djs/mahoo.webp" alt="MAHOO (CH)" class="dj-img"><div class="dj-photo-fade"></div></div>
+        <div class="dj-body">
+          <div class="headliner-badge" data-i18n="lineup.headliner">Headliner</div>
+          <h3 class="dj-name">MAHOO (CH)</h3>
+          <div class="dj-tags"><span>Afro House</span><span>Melodic House</span></div>
+          <iframe class="sc-widget" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mahoo_ofc&color=%23C9A84C&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+          <div class="ig-embed-wrap">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbdBENNiCao/" data-instgrm-version="14"></blockquote>
+          </div>
+          <div class="dj-links">
+            <a href="https://www.instagram.com/mahoo_ofc/" class="dj-link" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://soundcloud.com/mahoo_ofc" class="dj-link" target="_blank" rel="noopener" aria-label="SoundCloud"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 16h2v-5H0v5zm3.5 0h2V9h-2v7zm3.5 0h2V7H7v9zm3-1.5A5.5 5.5 0 0 1 19 8.7a4 4 0 0 1 5 3.8A3.5 3.5 0 0 1 20.5 16H10V14.5z"/></svg></a>
+            <a href="https://open.spotify.com/intl-de/artist/3P3qHHYPWNYZJIVtXduoH0?si=J5s-m2erTiOdG4wmw3YmZA" class="dj-link" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dj-card headliner reveal">
+        <div class="dj-photo"><img src="assets/djs/vinorate.webp" alt="VINORATE" class="dj-img"><div class="dj-photo-fade"></div></div>
+        <div class="dj-body">
+          <div class="headliner-badge" data-i18n="lineup.headliner">Headliner</div>
+          <h3 class="dj-name">VINORATE</h3>
+          <div class="dj-tags"><span>House</span><span>Tech House</span></div>
+          <iframe class="sc-widget" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/vinorate&color=%23C9A84C&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+          <div class="ig-embed-wrap">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Da3GEevgvv5/" data-instgrm-version="14"></blockquote>
+          </div>
+          <div class="dj-links">
+            <a href="https://www.instagram.com/djvinorate/" class="dj-link" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://soundcloud.com/vinorate" class="dj-link" target="_blank" rel="noopener" aria-label="SoundCloud"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 16h2v-5H0v5zm3.5 0h2V9h-2v7zm3.5 0h2V7H7v9zm3-1.5A5.5 5.5 0 0 1 19 8.7a4 4 0 0 1 5 3.8A3.5 3.5 0 0 1 20.5 16H10V14.5z"/></svg></a>
+            <a href="https://vinorate.at/" class="dj-link" target="_blank" rel="noopener" aria-label="Website"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Support Row -->
+    <div class="dj-grid">
+
+      <div class="dj-card reveal">
+        <div class="dj-photo"><img src="assets/djs/richtig.webp" alt="KHEALO" class="dj-img"><div class="dj-photo-fade"></div></div>
+        <div class="dj-body">
+          <h3 class="dj-name">KHEALO</h3>
+          <div class="dj-tags"><span>Afro House</span><span>Melodic House</span></div>
+          <iframe class="sc-widget" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/khealomusic&color=%23C9A84C&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+          <div class="dj-links">
+            <a href="https://www.instagram.com/khealo/" class="dj-link" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://soundcloud.com/khealomusic" class="dj-link" target="_blank" rel="noopener" aria-label="SoundCloud"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 16h2v-5H0v5zm3.5 0h2V9h-2v7zm3.5 0h2V7H7v9zm3-1.5A5.5 5.5 0 0 1 19 8.7a4 4 0 0 1 5 3.8A3.5 3.5 0 0 1 20.5 16H10V14.5z"/></svg></a>
+            <a href="https://open.spotify.com/intl-de/artist/0XQ3loPbSGy9OjpwR1tp7w?si=fxsB0SQcQV-SpA8poHEBLA" class="dj-link" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dj-card reveal">
+        <div class="dj-photo"><img src="assets/djs/ardmos.webp" alt="ARDMOS" class="dj-img"><div class="dj-photo-fade"></div></div>
+        <div class="dj-body">
+          <h3 class="dj-name">ARDMOS</h3>
+          <div class="dj-tags"><span>Afro House</span><span>Melodic House</span></div>
+          <iframe class="sc-widget" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ardmos&color=%23C9A84C&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+          <div class="dj-links">
+            <a href="https://www.instagram.com/ardmos/" class="dj-link" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://soundcloud.com/ardmos" class="dj-link" target="_blank" rel="noopener" aria-label="SoundCloud"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 16h2v-5H0v5zm3.5 0h2V9h-2v7zm3.5 0h2V7H7v9zm3-1.5A5.5 5.5 0 0 1 19 8.7a4 4 0 0 1 5 3.8A3.5 3.5 0 0 1 20.5 16H10V14.5z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dj-card reveal">
+        <div class="dj-photo"><img src="assets/djs/fylo.webp" alt="FYLO" class="dj-img"><div class="dj-photo-fade"></div></div>
+        <div class="dj-body">
+          <h3 class="dj-name">FYLO</h3>
+          <div class="dj-tags"><span>Progressive</span><span>Melodic</span></div>
+          <iframe class="sc-widget" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/fylo-619130882&color=%23C9A84C&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+          <div class="dj-links">
+            <a href="https://www.instagram.com/fylomusic/" class="dj-link" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://soundcloud.com/fylo-619130882" class="dj-link" target="_blank" rel="noopener" aria-label="SoundCloud"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 16h2v-5H0v5zm3.5 0h2V9h-2v7zm3.5 0h2V7H7v9zm3-1.5A5.5 5.5 0 0 1 19 8.7a4 4 0 0 1 5 3.8A3.5 3.5 0 0 1 20.5 16H10V14.5z"/></svg></a>
+            <a href="https://open.spotify.com/intl-de/artist/5pXpBRwYE8x1Gy8PnBqyG7?si=TCh_X_vdRO-KWIF0x-97lw" class="dj-link" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dj-card dj-tba reveal">
+        <div class="dj-photo"><div class="dj-photo-inner tba">+</div></div>
+        <div class="dj-body">
+          <h3 class="dj-name">MORE TBA</h3>
+          <div class="dj-tags"><span>Coming Soon</span></div>
+          <p class="dj-bio" data-i18n="dj.tba.bio">Weitere Artists werden in Kürze bekannt gegeben.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 3. LOCATION ======================== -->
+<section id="location" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="label">LOCATION</span>
+      <h2 data-i18n="location.h2">Die Location</h2>
+      <p class="section-sub" data-i18n="location.sub">Altia by Urrechu &middot; Meliã Vienna, 58. Stock</p>
+    </div>
+    <div class="location-layout">
+      <div class="location-slider-wrap reveal">
+        <div class="location-slider" id="locationSlider">
+          <div class="location-slide"><img src="assets/location/loc02.webp" alt="Altia Skybar" loading="lazy"></div>
+          <div class="location-slide"><img src="assets/location/loc03.webp" alt="Altia Skybar" loading="lazy"></div>
+          <div class="location-slide"><img src="assets/location/loc04.webp" alt="Altia Skybar" loading="lazy"></div>
+          <div class="location-slide"><img src="assets/location/loc05.webp" alt="Altia Skybar" loading="lazy"></div>
+        </div>
+        <button class="slider-btn slider-prev" id="locPrev" aria-label="Vorheriges Bild"><svg viewBox="0 0 20 20"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" fill="currentColor"/></svg></button>
+        <button class="slider-btn slider-next" id="locNext" aria-label="Nächstes Bild"><svg viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" fill="currentColor"/></svg></button>
+        <div class="slider-dots" id="locDots">
+          <button class="dot active" data-i="0"></button>
+          <button class="dot" data-i="1"></button>
+          <button class="dot" data-i="2"></button>
+          <button class="dot" data-i="3"></button>
+        </div>
+      </div>
+      <div class="location-info reveal">
+        <h3>Altia by Urrechu</h3>
+        <p class="location-tagline" data-i18n="location.tagline">Restaurant &amp; Skybar · 58. Stock</p>
+        <p data-i18n-html="location.p">Im Herzen Wiens, hoch oben im <strong>DC Tower</strong> – thront die Altia Skybar im 58. Stock des Meliã Vienna. Als <strong>höchste Rooftop Bar Europas</strong> bietet sie einen unvergleichlichen 360°-Panoramablick über die Donaustadt und die perfekte Bühne für Dance For Good.</p>
+        <div class="location-facts">
+          <div class="fact"><span class="fact-num">58</span><span class="fact-label" data-i18n="location.fact1">Stockwerke</span></div>
+          <div class="fact"><span class="fact-num">220m</span><span class="fact-label" data-i18n="location.fact2">Höhe</span></div>
+          <div class="fact"><span class="fact-num">360°</span><span class="fact-label" data-i18n="location.fact3">Panorama</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 4. SPONSORS ======================== -->
+<section id="sponsors" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="label">SPONSORS</span>
+      <h2 data-i18n="sponsors.h2">Unsere Partner</h2>
+    </div>
+    <!-- HAUPTSPONSOREN: 5 Plätze -->
+    <div class="sponsors-tier">
+      <p class="tier-label" data-i18n="sponsors.tier.main">HAUPTSPONSOREN</p>
+      <div class="sponsors-row haupt-row">
+        <a href="https://www.melia.com/de/hotels/osterreich/wien/melia-vienna/restaurants/altia-by-urrechu-restaurant-and-skybar" class="sponsor-logo haupt-logo" target="_blank" rel="noopener"><img src="assets/logos/sponsor1.webp" alt="Altia by Urrechu"></a>
+        <div class="sponsor-logo haupt-logo placeholder"><span>SPONSOR</span></div>
+        <div class="sponsor-logo haupt-logo placeholder"><span>SPONSOR</span></div>
+        <div class="sponsor-logo haupt-logo placeholder"><span>SPONSOR</span></div>
+      </div>
+    </div>
+    <div class="sponsors-divider"></div>
+
+    <!-- GOLD SPONSOREN: 8 Plätze -->
+    <div class="sponsors-tier">
+      <p class="tier-label" data-i18n="sponsors.tier.gold">GOLD SPONSOREN</p>
+      <div class="sponsors-row gold-row">
+        <a href="https://www.snaptista.com/" class="sponsor-logo gold-logo" target="_blank" rel="noopener"><img src="assets/logos/sponsor2.webp" alt="Snaptista"></a>
+        <a href="https://www.instagram.com/bpm.vienna/" class="sponsor-logo gold-logo" target="_blank" rel="noopener"><img src="assets/logos/sponsor3.webp" alt="BPM Vienna"></a>
+        <div class="sponsor-logo gold-logo placeholder"><span>SPONSOR</span></div>
+        <div class="sponsor-logo gold-logo placeholder"><span>SPONSOR</span></div>
+        <div class="sponsor-logo gold-logo placeholder"><span>SPONSOR</span></div>
+        <div class="sponsor-logo gold-logo placeholder"><span>SPONSOR</span></div>
+        <div class="sponsor-logo gold-logo placeholder"><span>SPONSOR</span></div>
+      </div>
+    </div>
+    <div class="sponsors-divider"></div>
+
+    <!-- LOGO SPONSOREN: 24 Plätze (3 × 8) -->
+    <div class="sponsors-tier">
+      <p class="tier-label" data-i18n="sponsors.tier.logo">LOGO SPONSOREN</p>
+      <div class="sponsors-row logo-row">
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+        <div class="sponsor-logo logo-sponsor placeholder"><span>LOGO</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 5. LETZTES EVENT ======================== -->
+<section id="last-event" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="label" data-i18n="last-event.label">LETZTES EVENT</span>
+      <h2>Café Français</h2>
+      <p class="section-sub" data-i18n="last-event.sub">Powered by Dance For Good &middot; Wien</p>
+    </div>
+  </div><!-- end .container -->
+
+  <div class="container">
+  <div class="event-slider-wrap">
+    <div class="event-slider" id="eventSlider">
+      <div class="event-slide"><div class="ev-grid">
+        <img src="assets/gallery/event/ev11.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev04.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev17.webp" alt="Café Français" loading="lazy">
+      </div></div>
+      <div class="event-slide"><div class="ev-grid">
+        <img src="assets/gallery/event/ev08.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev14.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev02.webp" alt="Café Français" loading="lazy">
+      </div></div>
+      <div class="event-slide"><div class="ev-grid">
+        <img src="assets/gallery/event/ev19.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev06.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev13.webp" alt="Café Français" loading="lazy">
+      </div></div>
+      <div class="event-slide"><div class="ev-grid">
+        <img src="assets/gallery/event/ev20.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev09.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev15.webp" alt="Café Français" loading="lazy">
+      </div></div>
+      <div class="event-slide"><div class="ev-grid">
+        <img src="assets/gallery/event/ev03.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev16.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev07.webp" alt="Café Français" loading="lazy">
+      </div></div>
+      <div class="event-slide"><div class="ev-grid">
+        <img src="assets/gallery/event/ev12.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev01.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev18.webp" alt="Café Français" loading="lazy">
+      </div></div>
+      <div class="event-slide"><div class="ev-grid ev-grid-2">
+        <img src="assets/gallery/event/ev05.webp" alt="Café Français" loading="lazy">
+        <img src="assets/gallery/event/ev10.webp" alt="Café Français" loading="lazy">
+      </div></div>
+    </div>
+    <button class="slider-btn slider-prev" id="evPrev" aria-label="Vorheriges Bild">
+      <svg viewBox="0 0 20 20"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" fill="currentColor"/></svg>
+    </button>
+    <button class="slider-btn slider-next" id="evNext" aria-label="Nächstes Bild">
+      <svg viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" fill="currentColor"/></svg>
+    </button>
+    <div class="slider-dots" id="evDots">
+      <button class="ev-dot active" data-i="0"></button>
+      <button class="ev-dot" data-i="1"></button>
+      <button class="ev-dot" data-i="2"></button>
+      <button class="ev-dot" data-i="3"></button>
+      <button class="ev-dot" data-i="4"></button>
+      <button class="ev-dot" data-i="5"></button>
+      <button class="ev-dot" data-i="6"></button>
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <div class="event-gallery-cta">
+      <a href="https://de.ra.co/events/2255252" class="btn-outline" target="_blank" rel="noopener">
+        <span data-i18n="last-event.btn">Zum Event auf Resident Advisor</span>
+        <svg viewBox="0 0 20 20" width="16" height="16"><path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 6. ABOUT (Team) ======================== -->
+<section id="team" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="label">ABOUT</span>
+    </div>
+    <div class="team-photo-wrap reveal">
+      <img src="assets/team/macher.webp" alt="Andreas und Michael" class="team-main-photo">
+      <div class="team-photo-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer id="footer">
+  <div class="footer-waves" id="footerWaves"></div>
+  <div class="kkh-banner">
+    <div class="container">
+      <div class="kkh-inner">
+        <img src="assets/logos/kkh2.webp" alt="Österreichische Kinderkrebshilfe" class="kkh-logo-footer">
+        <div class="kkh-text">
+          <p data-i18n="footer.kkh.text">DER REINERLÖS GEHT AN THE</p>
+          <strong>AUSTRIAN CHILDREN'S CANCER AID</strong>
+          <p class="kkh-sub" data-i18n="footer.kkh.sub">Österreichische Kinderkrebshilfe</p>
+        </div>
+        <a href="https://www.kinderkrebshilfe.at" class="btn-outline kkh-btn" target="_blank" rel="noopener" data-i18n="footer.kkh.btn">Zur Organisation</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="assets/icon.webp?v=2" alt="DFQ" class="footer-icon">
+    </div>
+    <p class="footer-tagline">DANCE &middot; CONNECT &middot; GIVE BACK</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/danceforgoodevents/" class="footer-social-link" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/danceforgoodevents/?viewAsMember=true" class="footer-social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+    <nav class="footer-nav">
+      <a href="mailto:berger.jku@gmail.com" data-i18n="footer.nav.contact">Kontakt</a><span>&middot;</span>
+      <a href="#" onclick="openModal('impressumModal');return false;" data-i18n="footer.nav.impressum">Impressum</a><span>&middot;</span>
+      <a href="#" onclick="openModal('datenschutzModal');return false;" data-i18n="footer.nav.privacy">Datenschutz</a>
+    </nav>
+    <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 Dance For Good. Alle Rechte vorbehalten.</p>
+  </div>
+</footer>
+
+<!-- ======================== IMPRESSUM MODAL ======================== -->
+<div id="impressumModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="impressumTitle">
+  <div class="modal-overlay" onclick="openModal(null)"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="openModal(null)" aria-label="Schließen">&times;</button>
+    <h2 id="impressumTitle">Impressum</h2>
+    <div class="modal-body">
+      <h3>Medieninhaber gem. § 25 MedienG</h3>
+      <p>
+        Andreas David Berger &amp; Michael Alexander Holek<br>
+        Wagramer Straße 2, 1220 Wien<br>
+        Österreich
+      </p>
+
+      <h3>Kontakt</h3>
+      <p>E-Mail: <a href="mailto:berger.jku@gmail.com">berger.jku@gmail.com</a></p>
+
+      <h3>Grundlegende Richtung des Mediums (§ 25 Abs. 4 MedienG)</h3>
+      <p>Informationsplattform zur Benefizveranstaltung „Dance For Good 2026" zugunsten der Österreichischen Kinderkrebshilfe. Das Medium verfolgt keinen kommerziellen Zweck und keine Gewinnerzielungsabsicht.</p>
+
+      <h3>Offenlegung gem. § 25 MedienG</h3>
+      <p>Dieses Medium ist ein periodisches elektronisches Medium (Website). Es dient ausschließlich der Ankündigung und Information zur oben genannten Benefizveranstaltung.</p>
+
+      <h3>Haftungsausschluss</h3>
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Eine Gewähr für Richtigkeit, Vollständigkeit und Aktualität kann nicht übernommen werden. Links zu externen Websites Dritter liegen außerhalb des Verantwortungsbereichs des Medieninhabers.</p>
+
+      <h3>Urheberrecht</h3>
+      <p>Alle erstellten Inhalte und Werke auf dieser Website unterliegen dem österreichischen Urheberrecht. Vervielfältigung, Bearbeitung oder Verbreitung bedürfen der schriftlichen Zustimmung der Medieninhaber. Alle verwendeten Fotografien sind Eigentum der jeweiligen Rechteinhaber.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DATENSCHUTZ MODAL ======================== -->
+<div id="datenschutzModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="datenschutzTitle">
+  <div class="modal-overlay" onclick="openModal(null)"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="openModal(null)" aria-label="Schließen">&times;</button>
+    <h2 id="datenschutzTitle">Datenschutzerklärung</h2>
+    <div class="modal-body">
+      <h3>Verantwortliche Stelle</h3>
+      <p>Andreas David Berger &amp; Michael Alexander Holek<br>Wien, Österreich<br>E-Mail: <a href="mailto:berger.jku@gmail.com">berger.jku@gmail.com</a></p>
+
+      <h3>Erhebung und Verarbeitung personenbezogener Daten</h3>
+      <p>Diese Website erhebt keine personenbezogenen Daten automatisch. Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten (Name, E-Mail-Adresse, Nachricht) ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben.</p>
+
+      <h3>Cookies</h3>
+      <p>Diese Website verwendet keine Cookies.</p>
+
+      <h3>Externe Dienste</h3>
+      <p>Diese Website bindet Schriften von Google Fonts ein. Dabei werden Daten an Google-Server übertragen. Weitere Informationen finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+      <p>Tickets werden über Eventbrite abgewickelt. Für den Kaufprozess gelten die Datenschutzbestimmungen von Eventbrite.</p>
+
+      <h3>Ihre Rechte</h3>
+      <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit. Wenden Sie sich dazu an: <a href="mailto:berger.jku@gmail.com">berger.jku@gmail.com</a></p>
+
+      <h3>Beschwerderecht</h3>
+      <p>Sie haben das Recht, sich bei der österreichischen Datenschutzbehörde zu beschweren: <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">www.dsb.gv.at</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script async defer src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
