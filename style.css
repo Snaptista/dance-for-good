@@ -332,8 +332,9 @@ ul    { list-style: none; }
 .charity-badge-inner strong { display: block; margin-top: 4px; color: var(--gold-light); letter-spacing: .07em; }
 
 /* ======================== DJ LINEUP ======================== */
-.dj-headliners { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 0 auto 28px; max-width: 720px; }
+.dj-headliners { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; margin: 0 auto 28px; }
 .dj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; }
+@media (max-width: 860px) { .dj-headliners { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .dj-headliners { grid-template-columns: 1fr; } }
 
 .dj-card {
@@ -353,7 +354,7 @@ ul    { list-style: none; }
   grid-column: span 1;
 }
 .dj-card.headliner:hover { box-shadow: 0 24px 64px rgba(0,0,0,.7), 0 0 0 1px var(--gold); }
-.dj-card.headliner .dj-name { color: var(--gold); font-size: 1.55rem; }
+.dj-card.headliner .dj-name { color: var(--gold); font-size: 1.38rem; }
 .dj-card.headliner:hover .dj-name { color: var(--gold-light); }
 .dj-card.headliner .dj-photo { aspect-ratio: 3/4; border-radius: var(--r-lg) var(--r-lg) 0 0; overflow: hidden; }
 .sc-widget { width: 100%; height: 166px; border-radius: var(--r); overflow: hidden; margin-top: 4px; }
@@ -380,13 +381,13 @@ ul    { list-style: none; }
   transform: translateY(-50%) scale(0.82);
 }
 /* VINORATE – rechts */
-.dj-headliners .dj-card.headliner:last-child .ig-embed-wrap {
+.dj-headliners .dj-card.headliner:nth-child(2) .ig-embed-wrap {
   left: calc(100% + 10px);
   right: auto;
   transform: translateY(-50%) scale(0.82);
   transform-origin: left center;
 }
-.dj-headliners .dj-card.headliner:last-child:hover .ig-embed-wrap {
+.dj-headliners .dj-card.headliner:nth-child(2):hover .ig-embed-wrap {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-50%) scale(0.82);
