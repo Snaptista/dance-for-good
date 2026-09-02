@@ -58,6 +58,17 @@ ul    { list-style: none; }
   margin: 10px 0 6px;
 }
 .section-sub { font-size: .85rem; color: var(--grey); letter-spacing: .2em; }
+.btn-download-catalog {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 18px;
+  padding: 11px 26px;
+  border: 1.5px solid var(--gold);
+  border-radius: 4px;
+  color: var(--gold);
+  font-size: .82rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; text-decoration: none;
+  transition: background .2s, color .2s, transform .2s;
+}
+.btn-download-catalog:hover { background: var(--gold); color: #000; transform: translateY(-2px); }
 
 /* ======================== BUTTONS ======================== */
 .btn-gold {
