@@ -343,12 +343,18 @@ ul    { list-style: none; }
 .charity-badge-inner strong { display: block; margin-top: 4px; color: var(--gold-light); letter-spacing: .07em; }
 
 /* ======================== DJ LINEUP ======================== */
-.dj-headliners { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; margin: 0 auto 28px; position: relative; z-index: 2; }
-.dj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; }
-@media (max-width: 860px) { .dj-headliners { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .dj-headliners { grid-template-columns: 1fr; } }
+.dj-headliners { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; max-width: 900px; margin: 0 auto 28px; position: relative; z-index: 2; }
+.dj-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; align-items: stretch; }
+@media (max-width: 860px) { .dj-headliners { grid-template-columns: 1fr 1fr; max-width: 600px; } }
+@media (max-width: 600px) { .dj-headliners { grid-template-columns: 1fr; max-width: 380px; } }
+@media (max-width: 860px) { .dj-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .dj-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) { .dj-grid { grid-template-columns: 1fr; } }
 
 .dj-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: var(--dark-3);
   border: 1px solid rgba(255,255,255,.06);
   border-radius: var(--r-lg);
@@ -461,6 +467,8 @@ ul    { list-style: none; }
 .dj-photo { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--dark-4); }
 .dj-img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; transition: transform .6s ease; }
 .dj-card:hover .dj-img { transform: scale(1.04); }
+.dj-card-vale .dj-img { transform: scale(1.08); }
+.dj-card-vale:hover .dj-img { transform: scale(1.12); }
 
 .dj-photo-inner {
   width: 100%; height: 100%;
@@ -476,12 +484,12 @@ ul    { list-style: none; }
   background: linear-gradient(to top, var(--dark-3), transparent);
   pointer-events: none;
 }
-.dj-body { padding: 18px 22px 22px; }
+.dj-body { padding: 18px 22px 22px; display: flex; flex-direction: column; flex: 1; }
 .dj-name { font-size: 1.3rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; color: var(--white); transition: color var(--ease); margin-bottom: 8px; }
-.dj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 11px; }
+.dj-tags { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 5px; margin-bottom: 11px; }
 .dj-tags span { font-size: .63rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); background: var(--g10); border: 1px solid var(--g20); padding: 3px 10px; border-radius: 100px; }
 .dj-bio { font-size: .82rem; color: var(--grey); line-height: 1.65; margin-bottom: 16px; }
-.dj-links { display: flex; gap: 8px; }
+.dj-links { display: flex; gap: 8px; margin-top: auto; padding-top: 14px; }
 .dj-link {
   width: 34px; height: 34px;
   display: flex; align-items: center; justify-content: center;
@@ -491,6 +499,14 @@ ul    { list-style: none; }
   transition: border-color var(--ease), color var(--ease), background var(--ease);
 }
 .dj-link:hover { border-color: var(--gold); color: var(--gold); background: var(--g10); }
+
+.dj-grid .dj-body { padding: 15px 17px 18px; }
+.dj-grid .dj-name { font-size: 1.08rem; margin-bottom: 6px; }
+.dj-grid .dj-tags { gap: 4px; margin-bottom: 9px; min-height: 34px; }
+.dj-grid .dj-tags span { font-size: .58rem; padding: 3px 8px; }
+.dj-grid .sc-widget { height: 152px; }
+.dj-grid .dj-link { width: 30px; height: 30px; }
+.dj-grid .dj-link svg { width: 13px; height: 13px; }
 .dj-link svg { width: 14px; height: 14px; fill: currentColor; }
 .dj-link .sc-img { width: 14px; height: 14px; object-fit: contain; display: block; filter: grayscale(1) brightness(0.8); transition: filter var(--ease); }
 .dj-link:hover .sc-img { filter: grayscale(0) brightness(1.1); }
@@ -795,7 +811,6 @@ ul    { list-style: none; }
   .cd-item { min-width: 66px; }
   #hero { padding-top: 110px; }
   .hero-date-badge { width: 100px; height: 100px; }
-  .dj-grid { grid-template-columns: 1fr; }
   .event-gallery { grid-template-columns: repeat(2, 1fr); }
   .event-gallery img:nth-child(1) { grid-column: span 2; }
   .sponsors-row { flex-direction: column; align-items: stretch; }
