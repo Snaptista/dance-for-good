@@ -502,7 +502,7 @@ ul    { list-style: none; }
 
 .dj-grid .dj-body { padding: 15px 17px 18px; }
 .dj-grid .dj-name { font-size: 1.08rem; margin-bottom: 6px; }
-.dj-grid .dj-tags { gap: 4px; margin-bottom: 9px; min-height: 34px; }
+.dj-grid .dj-tags { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 9px; min-height: 34px; }
 .dj-grid .dj-tags span { font-size: .58rem; padding: 3px 8px; }
 .dj-grid .sc-widget { height: 152px; }
 .dj-grid .dj-link { width: 30px; height: 30px; }
