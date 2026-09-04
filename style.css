@@ -729,15 +729,11 @@ ul    { list-style: none; }
 .photographer-card {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 28px;
-  background: var(--dark-3);
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: var(--r-lg);
+  gap: 28px;
 }
 .photographer-media {
   flex-shrink: 0;
-  width: 140px;
+  width: 220px;
   aspect-ratio: 3/4;
   border-radius: var(--r);
   overflow: hidden;
@@ -753,8 +749,9 @@ ul    { list-style: none; }
 .photographer-info h3 + a.btn-outline { margin-top: 14px; }
 .photographer-info .btn-outline { padding: 10px 20px; font-size: .72rem; margin-top: 10px; margin-right: 8px; }
 @media (max-width: 700px) {
-  .photographer-grid { grid-template-columns: 1fr; }
-  .photographer-card { flex-direction: column; text-align: center; padding: 28px 20px; }
+  .photographer-grid { grid-template-columns: 1fr; max-width: 340px; }
+  .photographer-card { flex-direction: column; text-align: center; }
+  .photographer-media { width: 220px; }
   .photographer-info .btn-outline { margin: 6px 4px 0; }
 }
 
