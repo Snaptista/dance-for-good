@@ -718,6 +718,46 @@ ul    { list-style: none; }
 
 .sponsors-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--g20), transparent); margin-bottom: 48px; }
 
+/* ======================== PHOTOGRAPHER ======================== */
+.photographer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.photographer-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px;
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-lg);
+}
+.photographer-media {
+  flex-shrink: 0;
+  width: 140px;
+  aspect-ratio: 3/4;
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--dark-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photographer-media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.photographer-media.placeholder span { font-size: .62rem; font-weight: 700; letter-spacing: .3em; color: var(--grey); opacity: .35; }
+.photographer-info h3 { font-size: 1.3rem; font-weight: 800; letter-spacing: .02em; margin-bottom: 4px; }
+.photographer-credit { color: var(--gold); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+.photographer-info h3 + a.btn-outline { margin-top: 14px; }
+.photographer-info .btn-outline { padding: 10px 20px; font-size: .72rem; margin-top: 10px; margin-right: 8px; }
+@media (max-width: 700px) {
+  .photographer-grid { grid-template-columns: 1fr; }
+  .photographer-card { flex-direction: column; text-align: center; padding: 28px 20px; }
+  .photographer-info .btn-outline { margin: 6px 4px 0; }
+}
+
 /* ======================== FOOTER / KKH ======================== */
 .kkh-banner {
   background: var(--dark-3);
