@@ -703,17 +703,16 @@ ul    { list-style: none; }
 .sponsor-logo.gold-logo { width: 140px; height: 140px; }
 /* Weitere (tier 3) */
 .sponsor-logo.weitere-logo { width: 115px; height: 115px; }
-/* Logo (tier 4) – responsive 8-column grid */
+/* Logo (tier 4) – 6-column grid */
 .logo-row {
   display: grid !important;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
-  max-width: 900px;
+  max-width: 700px;
   margin: 0 auto;
 }
 .sponsor-logo.logo-sponsor { width: auto; height: auto; aspect-ratio: 1; min-width: 0; }
-@media (max-width: 900px) { .logo-row { grid-template-columns: repeat(6, 1fr); } }
-@media (max-width: 600px) { .logo-row { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 600px) { .logo-row { grid-template-columns: repeat(3, 1fr); } }
 
 .sponsor-logo.placeholder span { font-size: .62rem; font-weight: 700; letter-spacing: .3em; color: var(--grey); opacity: .35; }
 
