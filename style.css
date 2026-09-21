@@ -703,8 +703,6 @@ ul    { list-style: none; }
 .sponsor-logo.logo-sponsor { width: auto; height: auto; aspect-ratio: 1; min-width: 0; }
 @media (max-width: 600px) { .logo-row { grid-template-columns: repeat(3, 1fr); } }
 
-.sponsor-logo.placeholder span { font-size: .62rem; font-weight: 700; letter-spacing: .3em; color: var(--grey); opacity: .35; }
-
 .sponsors-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--g20), transparent); margin-bottom: 48px; }
 
 /* ======================== PHOTOGRAPHER ======================== */
